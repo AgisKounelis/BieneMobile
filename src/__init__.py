@@ -1,4 +1,5 @@
 import json
+import src.resprep
 
 REQUIRED_PARAMS = ['city', 'bus_count', 'total_distance']
 
@@ -22,7 +23,7 @@ def handle_payload(payload):
         if param not in payload:
             return respond(None, "Please include a `" + param + "` argument")
 
-    return respond(None, "All required parameters present!")
+    return respond(None, resprep.process_routes(resprep.input_json))
 
 
 def lambda_handler(event, context):
@@ -37,7 +38,7 @@ def lambda_handler(event, context):
     operation = event['httpMethod']
     if operation in operations:
         payload = event['queryStringParameters'] if operation == 'GET' else json.loads(event['body'])
-        if (payload):
+        if payload:
             return handle_payload(payload)
             # return respond(None, payload['friends'] if ('friends' in payload) else "Fish are friends, not food")
         else:

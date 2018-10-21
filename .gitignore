@@ -237,3 +237,6 @@ venv.bak/
 # Custom additions that really should be in the template
 .idea
 *.iml
+
+# Custom additions specific to this project
+config
