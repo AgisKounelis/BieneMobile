@@ -1,5 +1,6 @@
 import json
 import src.resprep
+import src.sampleData
 
 REQUIRED_PARAMS = ['city', 'bus_count', 'total_distance']
 
@@ -23,7 +24,7 @@ def handle_payload(payload):
         if param not in payload:
             return respond(None, "Please include a `" + param + "` argument")
 
-    return respond(None, resprep.process_routes(resprep.input_json))
+    return respond(None, resprep.process_routes(sampleData.input_json))
 
 
 def lambda_handler(event, context):
