@@ -1,10 +1,8 @@
-REQUIRED_PARAMS = ['city', 'bus_count', 'total_distance']
-
-# import boto3
 import json
 
+REQUIRED_PARAMS = ['city', 'bus_count', 'total_distance']
+
 print('Loading function')
-# dynamo = boto3.client('dynamodb')
 
 
 def respond(err, res=None):
