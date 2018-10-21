@@ -22,11 +22,15 @@ def get_hash(node, node_library):
 
 def process_routes(routes_obj):
     # First straighten the routes using Google Maps API
-    straightened_routes_obj = {'data': list(map(lambda route_from_obj:
-                                                src.maps.snap_to_roads(route_from_obj), routes_obj['data']))}
+    straightened_routes_obj = {'data': list(map(lambda route_from_obj: {
+        'name': route_from_obj['name'],
+        'route': src.maps.snap_to_roads(route_from_obj['route']),
+    }, routes_obj['data']))}
+
+    print(straightened_routes_obj)
 
     # Second find the unique nodes as bus stops
-    routes_stops = list(map(lambda route: (route['route']), straightened_routes_obj['data']))        # Extract routes
+    routes_stops = list(map(lambda sub_route: (sub_route['route']), straightened_routes_obj['data']))   # Extract routes
     stops = [y for x in routes_stops for y in x]                                        # Flatten stops
     uniq_stops = [dictify_hash_tuple(t) for t in {tuple(d.items()) for d in stops}]     # Deduplicate
     print(uniq_stops)
