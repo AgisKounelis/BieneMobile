@@ -1,6 +1,8 @@
 # BieneMobile
 Always bee on the move. Project for HackUPC 2018, winner of ServiZurich Challenge. More details: https://devpost.com/software/bienemobile
 
+![Preview](https://raw.githubusercontent.com/AgisKounelis/BieneMobile/master/_images/photo.jpg)
+
 ## Inspiration
 Cars kill. It's a fact that car accidents are the leading cause of death for young adults, and will only become deadlier as more of the world adopts this transportation method. We want to change that.
 
